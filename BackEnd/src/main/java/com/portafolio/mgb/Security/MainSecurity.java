@@ -28,6 +28,7 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
 
     @Autowired
     UserDetailsImpl userDetailsServicesImpl;
+    @Autowired
     JwtEntryPoint jwtEntryPoint;
 
     @Bean
