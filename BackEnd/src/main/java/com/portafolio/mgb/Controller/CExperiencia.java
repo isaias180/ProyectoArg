@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 @RequestMapping
@@ -46,6 +47,7 @@ public class CExperiencia {
      
      return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
     }
+    
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id,@RequestBody dtoExperiencia dtoexp){
         if(!sExperiencia.existsById(id))
@@ -55,8 +57,8 @@ public class CExperiencia {
         
         if(StringUtils.isBlank(dtoexp.getNombreE()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
-        
         Experiencia experiencia = sExperiencia.getOne(id).get();
+        
         experiencia.setNombreE(dtoexp.getNombreE());
         experiencia.setDescripcionE((dtoexp.getDescripcionE()));
         
