@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 @RequestMapping
-@CrossOrigin(origins = "http//localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200","https://frondproyecto.web.app"})
 public class CExperiencia {
     @Autowired
     SExperiencia sExperiencia;
@@ -52,11 +52,13 @@ public class CExperiencia {
     public ResponseEntity<?> update(@PathVariable("id") int id,@RequestBody dtoExperiencia dtoexp){
         if(!sExperiencia.existsById(id))
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
+        
         if(sExperiencia.existsByNombreE(dtoexp.getNombreE()) && sExperiencia.getBynombreE(dtoexp.getNombreE()).get().getId() != id)
             return new ResponseEntity(new Mensaje("Esa experiencia ya existe"), HttpStatus.BAD_REQUEST);
         
         if(StringUtils.isBlank(dtoexp.getNombreE()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+        
         Experiencia experiencia = sExperiencia.getOne(id).get();
         
         experiencia.setNombreE(dtoexp.getNombreE());
@@ -66,4 +68,15 @@ public class CExperiencia {
         return new ResponseEntity(new Mensaje("Experiencia actualizada"), HttpStatus.OK);
         
     }
+    
+    public ResponseEntity<?> delete(@PathVariable("id") int id){
+    if(!sExperiencia.existsById(id))
+        return new ResponseEntity(new Mensaje("El Id no existe"), HttpStatus.BAD_REQUEST);
+    
+    sExperiencia.delete(id);
+    
+    return new ResponseEntity(new Mensaje("Experiencia eliminada"),HttpStatus.OK);
+    }
+    
+    
 }
