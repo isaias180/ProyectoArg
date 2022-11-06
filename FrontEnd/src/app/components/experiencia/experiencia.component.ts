@@ -31,6 +31,18 @@ constructor(private sExperiencia: SExperienciaService, private tokenService: Tok
     
   }
 
+  delete(id?: number){
+    if(id != undefined){
+      this.sExperiencia.delete(id).subscribe(
+        data => {
+          this.cargarExpericiencia();
+        }, err =>{
+          alert("No se pudo borrar experiencia");
+        }
+      )
+    }
+  }
+
 }
 
 
