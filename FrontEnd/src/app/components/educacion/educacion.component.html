@@ -1,25 +1,23 @@
 <div class="row">
     <h1>Educacion</h1>
+    <div class="col-lg-2">
+       <button type="button" class="btn btn-danger" routerLink="/nuevaedu" *ngIf="isLogged">
+        Agregar Educacion
+       </button>
+    </div>
+
     <div class="col-lg-1"></div>
     <div class="col-lg-11">
-        <ul>
-            <li>
-                <h1>Estudio 1</h1> - <h3>(Years)</h3>
-            </li>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit odit eum officia autem aliquam officiis consectetur possimus distinctio fuga optio. Eos excepturi dolorem veniam exercitationem repellendus unde reprehenderit ullam molestias!</p>
-        </ul>
-        <ul>
-            <li>
-                <h1>Estudio 2</h1> - <h3>(Years)</h3>
-            </li>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit odit eum officia autem aliquam officiis consectetur possimus distinctio fuga optio. Eos excepturi dolorem veniam exercitationem repellendus unde reprehenderit ullam molestias!</p>
-        </ul>
-        <ul>
-            <li>
-                <h1>Estudio 3</h1> - <h3>(Years)</h3>
-            </li>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit odit eum officia autem aliquam officiis consectetur possimus distinctio fuga optio. Eos excepturi dolorem veniam exercitationem repellendus unde reprehenderit ullam molestias!</p>
-        </ul>
+        <table class="table">
+            <tbody>
+                <tr *ngFor="let Educacion of educacion">
+                    <td><h2>{{Educacion.nombreE}}</h2></td>
+                    <td>{{Educacion.descripcionE}}</td>
+                    <td *ngIf="isLogged"><button class="btn btn-light" routerLink="/editedu/{{Educacion.id}}"><i class="bi bi-pencil-square"></i>Editar</button></td>
+                    <td *ngIf="isLogged"><button class="btn btn-danger"(click)="delete(Educacion.id)"><i class="bi bi-trash3"></i>Borrar</button></td>
+                </tr>
+            </tbody>
+    
+        </table>
     </div>
 </div>
-
