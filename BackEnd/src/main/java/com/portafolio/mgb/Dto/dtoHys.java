@@ -2,36 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.portafolio.mgb.Entity;
+package com.portafolio.mgb.Dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
 
-@Entity
-public class hys {
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class dtoHys {
+    @NotBlank
     private String nombre;
+    @NotBlank
     private int porcentaje;
 
-    public hys() {
+    public dtoHys() {
     }
 
-    public hys(String nombre, int porcentaje) {
+    public dtoHys(String nombre, int porcentaje) {
         this.nombre = nombre;
         this.porcentaje = porcentaje;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNombre() {
@@ -52,5 +39,3 @@ public class hys {
     
     
 }
-
-
