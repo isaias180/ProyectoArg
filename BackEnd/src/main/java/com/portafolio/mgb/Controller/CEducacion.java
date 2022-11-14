@@ -88,5 +88,6 @@ public class CEducacion {
         
         return new ResponseEntity(new Mensaje("Educacion actualizada"), HttpStatus.OK);
     }
+    
             
 }
