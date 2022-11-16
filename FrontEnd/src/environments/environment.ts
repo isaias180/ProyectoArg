@@ -3,6 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  firebase: {
+    projectId: 'frondproyecto',
+    appId: '1:415395807762:web:3e590c5639fb195efc4ecb',
+    storageBucket: 'frondproyecto.appspot.com',
+    locationId: 'southamerica-east1',
+    apiKey: 'AIzaSyBZh8eG4uUAtW6kYtwG_dqjipWw0-yC3nE',
+    authDomain: 'frondproyecto.firebaseapp.com',
+    messagingSenderId: '415395807762',
+  },
   production: false,
   URL:'http://localhost:8080/',
  // URL:'https://backendmgbheroku.herokuapp.com/'

@@ -10,13 +10,19 @@ div{
 
 @media (min-width:576px){
     #fotodeperfil{
-        position: absolute;
-        width: 95px;
+       /* position: absolute;
+        width: 95px;*/
         border-radius: 50%;
         box-shadow: 300px 300px 300px #a1b5cb;
-        left: 3.5%;
-        top: 750px;
+       /* left: 3.5%;
+        top: 750px;*/
     }  
+
+    .descripcion{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
 }
 
